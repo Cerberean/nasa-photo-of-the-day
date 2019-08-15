@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import axios from "axios";
 import PhotoCard from './components/PhotoCard.js';
-import "./App.css";
+import "./App.scss";
 
 function App() {
   const [data, setData] = useState({});
