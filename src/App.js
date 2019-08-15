@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import axios from "axios";
 import PhotoCard from './components/PhotoCard.js';
 import "./App.scss";
@@ -9,7 +9,8 @@ function App() {
   // const [url, setUrl] = useState("");
   // const [explanation, setExplanation] = useState("");
   // console.log("top")
-  axios.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
+  useEffect(() => {
+  axios.get("https://api.nasa.gov/planetary/apod?api_key=41lV7fPsHWESqmKe3pihAPvAr7yLpy6nzoawFihq")
   .then(res => {
     setData(res.data);
     // console.log(res.data);
@@ -17,6 +18,7 @@ function App() {
     // setUrl(res.data.url)
     // setExplanation(res.data.explanation)
   });
+}, []);
   // console.log("bottom");
   return (
     <div className="App">
@@ -26,8 +28,8 @@ function App() {
       </p>
       <PhotoCard title={data.title}
                  url={data.url}
-                 explanation={data.explanation}
-      />
+                 date={data.date}
+                 explanation={data.explanation} />
     </div>
   );
 }
